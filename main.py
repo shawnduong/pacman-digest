@@ -107,12 +107,20 @@ def digest_data() -> int:
 	with open(ROOT + "/template.html", "r") as f:
 		html = f.read().replace("{{ DATA }}", data)
 
+	# Read the stylesheet and substitute the CSS.
+	with open(ROOT + "/css/style.css", "r") as f:
+		html = html.replace("{{ CSS }}", f.read())
+
 	# Read the jQuery and substitute the JS.
-	with open(ROOT + "/jquery-3.6.0.slim.min.js", "r") as f:
+	with open(ROOT + "/js/jquery-3.6.0.slim.min.js", "r") as f:
 		html = html.replace("{{ JQUERY }}", f.read())
 
+	# Read the Chart.js and substitute the JS.
+	with open(ROOT + "/js/chart.min.js", "r") as f:
+		html = html.replace("{{ CHARTJS }}", f.read())
+
 	# Read the JavaScript and substitute the JS.
-	with open(ROOT + "/script.js", "r") as f:
+	with open(ROOT + "/js/script.js", "r") as f:
 		html = html.replace("{{ JAVASCRIPT }}", f.read())
 
 	# Write to "digest.html"
