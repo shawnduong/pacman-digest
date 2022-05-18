@@ -23,6 +23,10 @@
 	</div>
 
 	<script>
+		{{ JQUERY }}
+	</script>
+
+	<script>
 		/* data["packages"] is in the format:
 		 * Index Item
 		 *     0 Name
@@ -42,14 +46,7 @@
 		 *    14 Install Reason
 		 * data["total"] and data["used"] are in bytes.
 		 */
-		val data = {{ DATA }}
-	</script>
-
-	<script>
-		{{ JQUERY }}
-	</script>
-
-	<script>
+		let data = {{ DATA }}
 		{{ JAVASCRIPT }}
 	</script>
 
