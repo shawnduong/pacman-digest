@@ -107,6 +107,10 @@ def digest_data() -> int:
 	with open(ROOT + "/template.html", "r") as f:
 		html = f.read().replace("{{ DATA }}", data)
 
+	# Read the JavaScript and substitute the JS.
+	with open(ROOT + "/script.js", "r") as f:
+		html = html.replace("{{ JAVASCRIPT }}", f.read())
+
 	# Write to "digest.html"
 	with open(ROOT + "/digest.html", "w") as f:
 		f.write(html)
