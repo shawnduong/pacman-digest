@@ -3,9 +3,24 @@
 
 <head>
 	<title>Pacman Digest</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+
+	<div id="header">
+		<h1>Pacman Digest</h1>
+	</div>
+
+	<div id="about">
+		<p>Check out the project on <a target="_blank" href="https://github.com/shawnduong/pacman-digest">GitHub</a>!</p>
+	</div>
+
+	<div id="pkgcount">
+		<p>As of today, you have</p>
+		<h2 id="count">0</h2>
+		<p>installed packages.</p>
+	</div>
 
 	<script>
 		/* data["packages"] is in the format:
@@ -28,6 +43,10 @@
 		 * data["total"] and data["used"] are in bytes.
 		 */
 		val data = {{ DATA }}
+	</script>
+
+	<script>
+		{{ JQUERY }}
 	</script>
 
 	<script>

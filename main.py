@@ -107,6 +107,10 @@ def digest_data() -> int:
 	with open(ROOT + "/template.html", "r") as f:
 		html = f.read().replace("{{ DATA }}", data)
 
+	# Read the jQuery and substitute the JS.
+	with open(ROOT + "/jquery-3.6.0.slim.min.js", "r") as f:
+		html = html.replace("{{ JQUERY }}", f.read())
+
 	# Read the JavaScript and substitute the JS.
 	with open(ROOT + "/script.js", "r") as f:
 		html = html.replace("{{ JAVASCRIPT }}", f.read())
