@@ -18,10 +18,17 @@
 		<p>Check out the project on <a target="_blank" href="https://github.com/shawnduong/pacman-digest">GitHub</a>!</p>
 	</div>
 
-	<div id="pkgcount">
+	<div id="pkgs">
 		<p>As of today, you have</p>
-		<h2 id="count">0</h2>
+		<h2 id="pkgs-count">0</h2>
 		<p>installed packages.</p>
+	</div>
+
+	<div id="part">
+		<p>That's <i id="part-percent">0.00%</i> of your root partition.</p>
+		<center>
+			<canvas id="part-chart"></canvas>
+		</center>
 	</div>
 
 	<script>
