@@ -17,6 +17,7 @@ body {
 	font-family: Arcade;
 	margin-left: 15%;
 	margin-right: 15%;
+	margin-bottom: 15%;
 }
 
 a {
@@ -34,18 +35,14 @@ a {
 }
 
 #pkgs {
-	margin-top: 96px;
+	margin-top: 48px;
 	text-align: center;
-}
-
-#pkgs-count {
-	color: var(--orange);
 }
 
 #part {
 	align-items: center;
 	display: flex;
-	margin-top: 96px;
+	margin-top: 48px;
 	text-align: center;
 }
 
@@ -55,16 +52,39 @@ a {
 	width: 33%;
 }
 
-#part-percent {
-	color: var(--orange);
-}
-
 #part-chart-container {
 	display: inline-block;
 	width: 67%;
 }
 
 #part-chart {
+	max-width: 512px;
 	margin-left: 64px;
 	margin-right: 64px;
+}
+
+#usage {
+	margin-top: 48px;
+}
+
+#usage-table {
+	border-collapse: collapse;
+}
+
+#usage-table th {
+	text-align: left;
+	border-bottom: 1px solid var(--orange);
+}
+
+#usage-table-size {
+	padding-left: 2em;
+	width: 8em;
+}
+
+.orange {
+	color: var(--orange);
+}
+
+.table-data-right {
+	text-align: right;
 }

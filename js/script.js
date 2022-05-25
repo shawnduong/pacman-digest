@@ -1,3 +1,6 @@
+/* Sort the packages by installed size (largest to smallest). */
+data["packages"].sort((a, b) => b[10] - a[10]);
+
 /* Set the packages count. */
 $("#pkgs-count").text(data["packages"].length);
 
@@ -45,3 +48,15 @@ const partChart = new Chart(
 		},
 	}
 )
+
+/* Create the usage table entries. */
+let rows = "";
+
+for (let i = 0; i < (data["packages"].length < 50 ? data["packages"].length : 50); i++)
+{
+	rows += "<tr><td>" + data["packages"][i][0] + "</td>";
+	rows += "<td class='table-data-right'><span class='orange'>" + (data["packages"][i][10]/1048576).toFixed(0) + "</span>";
+	rows += " MiB</td></tr>";
+}
+
+$("#usage-table tr").first().after(rows)
