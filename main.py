@@ -5,7 +5,7 @@ import os
 import shutil
 import sys
 
-from subprocess import check_output
+from subprocess import Popen, check_output
 
 ROOT = os.path.dirname(__file__)
 
@@ -15,7 +15,9 @@ def help_dialogue() -> int:
 	s += "Generate visualizations of space usage for Linux systems using pacman.\n"
 	s += "\n"
 	s += "OPTIONS:\n"
-	s += "  -h, --help  Display this help dialogue and exit.\n"
+	s += "  -h, --help      Display this help dialogue and exit.\n"
+	s += "      --firefox   Open the digest in Firefox once done.\n"
+	s += "      --chromium  Open the digest in Chromium once done.\n"
 	s += "\n"
 	s += "If no additional arguments are supplied, then pacman-usage will generate a\n"
 	s += "'digest.html' file containing data visualizations. Run the program, then open\n"
@@ -141,6 +143,18 @@ def main(args):
 
 	elif "-h" in args or "--help" in args:
 		return help_dialogue()
+
+	elif "--firefox" in args:
+		digest_data()
+		print(":: Opening with Firefox...")
+		Popen(["firefox", ROOT + "/digest.html"])
+		return 0
+
+	elif "--chromium" in args:
+		digest_data()
+		print(":: Opening with Chromium...")
+		Popen(["chromium", ROOT + "/digest.html"])
+		return 0
 
 	else:
 		print(":: Unknown usage. Try running './main.py --help' for more info.")
