@@ -4,7 +4,7 @@
 
 Pacman Digest helps users understand and visualize their package space usage as well as understand what packages take up the most space on their system. It processes system data and creates a portable `digest.html` file containing desired information.
 
-![](https://shawnd.xyz/assets/misc/2022-05-24/pacman-digest.gif?site=github)
+![](./img/pacman-digest.gif)
 
 ## Installation
 
@@ -26,4 +26,4 @@ $ ./main.py --chromium  # For Chromium users.
 
 ## License
 
-This project is published under the [MIT License](LICENSE).
+This project is published under the [MIT License](./LICENSE).
