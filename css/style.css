@@ -43,14 +43,28 @@ a {
 }
 
 #part {
+	align-items: center;
+	display: flex;
 	margin-top: 96px;
 	text-align: center;
+}
+
+#part-text {
+	display: inline-block;
+	height: 100%;
+	width: 33%;
 }
 
 #part-percent {
 	color: var(--orange);
 }
 
+#part-chart-container {
+	display: inline-block;
+	width: 67%;
+}
+
 #part-chart {
-	margin: 5%;
+	margin-left: 64px;
+	margin-right: 64px;
 }
