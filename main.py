@@ -64,6 +64,8 @@ def parse(data: str) -> list:
 		output["Installed Size"] = float(size.split()[0])*(1024**2)
 	elif "GiB" in size:
 		output["Installed Size"] = float(size.split()[0])*(1024**3)
+	else:
+		output["Installed Size"] = float(size.split()[0])
 
 	# Remove irrelevant data and convert it all into a list to reduce size.
 	return [

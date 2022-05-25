@@ -4,8 +4,19 @@ data["packages"].sort((a, b) => b[10] - a[10]);
 /* Set the packages count. */
 $("#pkgs-count").text(data["packages"].length);
 
+/* Calculate the total space used by packages. */
+let pkgUsage = 0.0;
+
+for (let i = 0; i < data["packages"].length; i++)
+{
+	pkgUsage += data["packages"][i][10];
+}
+
 /* Calculate the partition usage percentage. */
 $("#part-percent").text((100 * data["used"]/data["total"]).toFixed(2) + "%");
+
+/* Calculate the partition usage percentage by packages. */
+$("#part-pkg-percent").text((100 * pkgUsage/data["total"]).toFixed(2) + "%");
 
 /* Generate the partition usage chart. */
 const partChart = new Chart(
@@ -15,17 +26,18 @@ const partChart = new Chart(
 		type: "pie",
 		data:
 		{
-			labels: ["Used", "Free"],
+			labels: ["Used (packages)", "Used (non-packages)", "Free"],
 			datasets:
 			[
 				{
 					label: "Data",
 					data:
 					[
-						(data["used"]/1073741824).toFixed(2),
+						(pkgUsage/1073741824).toFixed(2),
+						((data["used"] - pkgUsage)/1073741824).toFixed(2),
 						((data["total"] - data["used"])/1073741824).toFixed(2),
 					],
-					backgroundColor: ["#FF0000", "#00FFFF"],
+					backgroundColor: ["#FF0000", "#FFB852", "#00FFFF"],
 				},
 			],
 		},
@@ -41,7 +53,7 @@ const partChart = new Chart(
 				{
 					callbacks:
 					{
-						label: (item) => ` ${item.formattedValue} GiB`,
+						label: (item) => ` ${item.label} ${item.formattedValue} GiB`,
 					},
 				},
 			},

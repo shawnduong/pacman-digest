@@ -73,6 +73,7 @@ a {
 
 #usage-table th {
 	text-align: left;
+	padding-bottom: 8px;
 	border-bottom: 1px solid var(--orange);
 }
 
